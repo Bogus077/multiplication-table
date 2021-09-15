@@ -1,9 +1,8 @@
 import React from "react";
 import styles from './number.module.css';
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
-export default function Number (props) {
+export default function Number (props: any) {
 
     let cx = classNames.bind(styles);
     let numberClass = cx({
@@ -16,8 +15,4 @@ export default function Number (props) {
             {props.number}
         </div>
     );
-}
-
-Number.propTypes = {
-    number: PropTypes.Number
 }
