@@ -1,0 +1,11 @@
+{
+  "name": "multiplication-table",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Bogus077/multiplication-table.git",
+  "author": "Vladislav Sharkov <bogus077@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.6.1"
+  }
+}
