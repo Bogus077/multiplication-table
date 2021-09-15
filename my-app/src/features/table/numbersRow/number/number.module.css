@@ -1,0 +1,20 @@
+.number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+
+    border: 2px solid #ff6633;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.number:hover, .number_active{
+    background-color: #ff6633;
+    color: #fff;
+}

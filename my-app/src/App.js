@@ -1,10 +1,10 @@
 import React from 'react';
-import { Counter } from './features/counter/Counter';
+import Table from './features/table/table';
 import './App.css';
 
 function App() {
   return (
-        <Counter />
+        <Table />
   );
 }
 

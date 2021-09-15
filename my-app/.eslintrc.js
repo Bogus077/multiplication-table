@@ -19,5 +19,26 @@ module.exports = {
     'react-redux',
   ],
   'rules': {
+    "no-console": "warn",
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowTaggedTemplates": true
+      }
+    ],
+    "no-unused-vars": [
+      "warn", 
+      { 
+        "vars": "all", 
+        "args": "after-used", 
+        "ignoreRestSiblings": false 
+      }
+    ],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": ["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"]
+      }
+    ]
   },
 };
