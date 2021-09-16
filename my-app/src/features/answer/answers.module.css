@@ -1,11 +1,10 @@
 .answers{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     font-size: 55px;
     flex-wrap: wrap;
-    width: 300px;
-    margin: 50px 0;
+    margin: 50px 0 0;
 }
 
 .answer__item{

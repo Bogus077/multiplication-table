@@ -4,7 +4,7 @@
     align-items: center;
 
     padding: 5px 20px;
-    margin: 50px 0px;
+    margin: 50px 0px 0;
     border: 2px solid #ff6633;
     transition: 0.3s;
 }
