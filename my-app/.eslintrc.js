@@ -1,23 +1,28 @@
+// eslint-disable-next-line no-undef
 module.exports = {
-  'env': {
-    'browser': true,
-    'es2021': true,
+  env: {
+    browser: true,
+    es2021: true,
   },
-  'extends': [
+  extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:react-redux/recommended'
+    'plugin:@typescript-eslint/recommended',
   ],
-  'parserOptions': {
-    'ecmaFeatures': {
-      'jsx': true,
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    'ecmaVersion': 12,
-    'sourceType': 'module',
+    ecmaVersion: 12,
+    sourceType: 'module',
   },
-  'plugins': [
-    'react',
-    'react-redux',
-  ],
-  'rules': {
+  plugins: ['react', '@typescript-eslint'],
+  rules: {
+    'no-console': 'warn',
+    indent: 'off',
+    'linebreak-style': ['warn', 'unix'],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
   },
 };

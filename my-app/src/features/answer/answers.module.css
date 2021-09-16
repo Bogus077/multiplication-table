@@ -1,0 +1,26 @@
+.answers{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 55px;
+    flex-wrap: wrap;
+    margin: 50px 0 0;
+}
+
+.answer__item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+
+    border: 2px solid #ff6633;
+    transition: 0.3s;
+}
+
+.answer__item:hover{
+    cursor: pointer;
+    background-color: #ff6633;
+    color: #fff;
+}
