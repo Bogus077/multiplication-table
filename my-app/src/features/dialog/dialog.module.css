@@ -1,0 +1,11 @@
+.dialog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    font-size: 30px;
+    background-color: #ffe4dc;
+    padding: 20px;
+    width: 80vw;
+    text-align: center;
+}

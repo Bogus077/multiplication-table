@@ -14,7 +14,16 @@
     transition: 0.3s;
 }
 
-.number:hover, .number_active{
+.number_active{
     background-color: #ff6633;
     color: #fff;
+}
+
+.number:hover{
+    background-color: hsla(15, 100%, 60%, 0.5);
+    color: #fff;
+}
+
+.number_active:hover{
+    background-color: hsla(15, 100%, 60%, 0.8);
 }

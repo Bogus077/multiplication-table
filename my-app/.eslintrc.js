@@ -21,7 +21,7 @@ module.exports = {
   'rules': {
     "no-console": "warn",
     "no-unused-expressions": [
-      "error",
+      "warn",
       {
         "allowTaggedTemplates": true
       }
@@ -39,6 +39,11 @@ module.exports = {
       {
         "allow": ["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"]
       }
-    ]
+    ],
+    "prefer-const": ["warn", {
+      "destructuring": "any",
+      "ignoreReadBeforeAssign": false
+    }],
+    "no-use-before-define": ["warn", { "functions": true, "classes": true }]
   },
 };

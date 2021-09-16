@@ -3,7 +3,7 @@ import Number from "./number/number";
 import styles from './numbersRow.module.css';
 
 export default function NumbersRow () {    
-    const numbers = [1,2,3,4,5,6,7,8,9];
+    const numbers = [2,3,4,5,6,7,8,9];
 
     return(
         <div className={styles.NumbersRow}>
