@@ -10,18 +10,18 @@ import { newExpression } from './tableSlice';
 import styles from './table.module.css';
 
 export default function Table() {
-    const dispatch = useDispatch();
-    const getNextExpression = () => {
-        dispatch(newExpression());
-    }
+  const dispatch = useDispatch();
+  const getNextExpression = () => {
+    dispatch(newExpression());
+  };
 
-    return(
-        <div className={styles.screen}>
-            <NumbersRow/>
-            <Button text={'Следующий пример'} onClickFunction={getNextExpression}/>
-            <Expression/>
-            <Answers/>
-            <Dialog/>
-        </div>
-    );
+  return (
+    <div className={styles.screen}>
+      <NumbersRow />
+      <Button text={'Следующий пример'} onClickFunction={getNextExpression} />
+      <Expression />
+      <Answers />
+      <Dialog />
+    </div>
+  );
 }
