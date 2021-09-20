@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import NumbersRow from './numbersRow/numbersRow';
 import Button from '../ui/button/button';
 import Expression from '../expression/expression';
@@ -9,7 +9,7 @@ import { newExpression } from './tableSlice';
 
 import styles from './table.module.css';
 
-export default function Table() {
+export default function Table() : ReactElement {
   const dispatch = useDispatch();
   const getNextExpression = () => {
     dispatch(newExpression());

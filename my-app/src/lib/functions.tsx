@@ -1,8 +1,10 @@
+import { stateTypes } from '../features/table/tableSlice';
+
 export const getRandomNumber = (min: number, max: number): number => {
   return Math.floor(min + Math.random() * (max + 1 - min));
 };
 
-export const getActiveNumbersCount = (state: any): number => {
+export const getActiveNumbersCount = (state: stateTypes): number => {
   let activeNumberCount = 0;
 
   for (const key in state.activeNumbers) {
@@ -14,8 +16,9 @@ export const getActiveNumbersCount = (state: any): number => {
   return activeNumberCount;
 };
 
-export const generateNewExpression = (state: any): Array<number> => {
+export const generateNewExpression = (state: stateTypes): Array<number> => {
   let newNumber1: number;
+  let newNumber2: number;
 
   // eslint-disable-next-line no-constant-condition
   while (true) {
@@ -24,7 +27,14 @@ export const generateNewExpression = (state: any): Array<number> => {
       break;
     }
   }
-  const newNumber2 = getRandomNumber(2, 9);
+
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    newNumber2 = getRandomNumber(2, 9);
+    if (+state.lastItem !== +newNumber2) {
+      break;
+    }
+  }
 
   return [newNumber1, newNumber2];
 };
