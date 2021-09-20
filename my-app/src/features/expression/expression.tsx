@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import styles from './expression.module.css';
 import { expItem1, expItem2 } from '../table/tableSlice';
 
-export default function Expression() {
+export default function Expression() : React.ReactElement {
   const number1 = useSelector(expItem1);
   const number2 = useSelector(expItem2);
 

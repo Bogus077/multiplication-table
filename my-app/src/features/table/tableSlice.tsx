@@ -6,12 +6,13 @@ import {
 } from '../../lib/functions';
 import { dialog } from '../../lib/lexicons';
 
-interface stateTypes {
+export interface stateTypes {
   activeNumbers: {
     [key: string]: boolean;
   };
   expressionItem1: number;
   expressionItem2: number;
+  lastItem: number;
   dialog: string;
 }
 
@@ -28,6 +29,7 @@ const initialState: stateTypes = {
   },
   expressionItem1: getRandomNumber(2, 9),
   expressionItem2: getRandomNumber(2, 9),
+  lastItem: 0,
   dialog: dialog.pushForNewAnswer,
 };
 
@@ -35,7 +37,7 @@ export const TableSlice = createSlice({
   name: 'table',
   initialState,
   reducers: {
-    numberOn: (state: stateTypes, action: { [key: string]: string }) => {
+    numberOn: (state: stateTypes, action) : void => {
       const activeNumberCount: number = getActiveNumbersCount(state);
       if (state.activeNumbers[action.payload]) {
         if (activeNumberCount !== 1) {
@@ -60,6 +62,7 @@ export const TableSlice = createSlice({
     },
     goodAnswer: (state) => {
       state.dialog = dialog.goodAnswer;
+      state.lastItem = state.expressionItem2;
       const [newNumber1, newNumber2] = generateNewExpression(state);
       state.expressionItem1 = newNumber1;
       state.expressionItem2 = newNumber2;
@@ -70,7 +73,7 @@ export const TableSlice = createSlice({
       state.expressionItem1 = newNumber1;
       state.expressionItem2 = newNumber2;
       state.dialog = dialog.pushForNewAnswer;
-    },
+    }
   },
 });
 

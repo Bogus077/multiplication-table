@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import styles from './dialog.module.css';
 
-export default function Dialog() {
+export default function Dialog() : React.ReactElement {
   const dialog = useSelector(getDialog);
 
   return <div className={styles.dialog}>{dialog}</div>;
