@@ -1,4 +1,4 @@
-import { stateTypes } from '../features/table/tableSlice';
+import { stateTypes } from './interfaces';
 
 export const getRandomNumber = (min: number, max: number): number => {
   return Math.floor(min + Math.random() * (max + 1 - min));

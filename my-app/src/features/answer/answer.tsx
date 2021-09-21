@@ -13,7 +13,7 @@ export default function Answers(): JSX.Element {
 
   const answers = createAnswers(answerRight);
 
-  const checkAnswer = (e) => {
+  const checkAnswer = (e:any) => {
     +e.target.innerHTML === answerRight
       ? dispatch(goodAnswer())
       : dispatch(badAnswer());
@@ -28,7 +28,7 @@ export default function Answers(): JSX.Element {
   );
 }
 
-function AnswerItem(props: { number: number; checkFunction}) {
+function AnswerItem(props: { number: number; checkFunction:any}) {
   return (
     <div
       className={styles.answer__item}

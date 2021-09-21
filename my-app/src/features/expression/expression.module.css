@@ -13,3 +13,9 @@
 .expression__item_active{
     border-bottom: 2px solid #ff6633;
 }
+
+@media screen and (max-width: 700px){
+    .expression__item{
+        margin: 0 20px;
+    }
+}

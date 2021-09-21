@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import ProgressBar from '../progressBar/progressBar';
 import NumbersRow from './numbersRow/numbersRow';
 import Button from '../ui/button/button';
 import Expression from '../expression/expression';
@@ -17,8 +18,9 @@ export default function Table() : ReactElement {
 
   return (
     <div className={styles.screen}>
+      <ProgressBar/>
       <NumbersRow />
-      <Button text={'Следующий пример'} onClickFunction={getNextExpression} />
+      {/* <Button text={'Следующий пример'} onClickFunction={getNextExpression} /> */}
       <Expression />
       <Answers />
       <Dialog />

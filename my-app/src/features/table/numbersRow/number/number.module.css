@@ -27,3 +27,18 @@
 .number_active:hover{
     background-color: hsla(15, 100%, 60%, 0.8);
 }
+
+@media screen and (max-width: 700px){
+    .number{
+        margin: 7px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .number{
+        margin: 4px;
+        font-size: 17px;
+        width: 40px;
+        height: 40px;
+    }
+}

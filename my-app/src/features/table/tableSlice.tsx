@@ -5,18 +5,11 @@ import {
   generateNewExpression,
 } from '../../lib/functions';
 import { dialog } from '../../lib/lexicons';
-
-export interface stateTypes {
-  activeNumbers: {
-    [key: string]: boolean;
-  };
-  expressionItem1: number;
-  expressionItem2: number;
-  lastItem: number;
-  dialog: string;
-}
+import { steps } from '../../lib/constants';
+import { stateTypes, stepsType } from '../../lib/interfaces';
 
 const initialState: stateTypes = {
+  steps: steps,
   activeNumbers: {
     '2': true,
     '3': true,
@@ -37,6 +30,9 @@ export const TableSlice = createSlice({
   name: 'table',
   initialState,
   reducers: {
+    changeStep: (state, action) => {
+      state.steps = action.payload;
+    },
     numberOn: (state: stateTypes, action) : void => {
       const activeNumberCount: number = getActiveNumbersCount(state);
       if (state.activeNumbers[action.payload]) {
@@ -86,7 +82,9 @@ export const expItem2 = (state: { [key: string]: stateTypes }): number =>
   state.table.expressionItem2;
 export const getDialog = (state: { [key: string]: stateTypes }): string =>
   state.table.dialog;
+export const getSteps = (state: { [key: string]: stateTypes }): stepsType =>
+  state.table.steps;
 
-export const { numberOn, badAnswer, goodAnswer, newExpression } =
+export const { changeStep, numberOn, badAnswer, goodAnswer, newExpression } =
   TableSlice.actions;
 export default TableSlice.reducer;
