@@ -18,7 +18,7 @@ export default function Table() : ReactElement {
   return (
     <div className={styles.screen}>
       <NumbersRow />
-      <Button text={'Следующий пример'} onClickFunction={getNextExpression} />
+      {/* <Button text={'Следующий пример'} onClickFunction={getNextExpression} /> */}
       <Expression />
       <Answers />
       <Dialog />
