@@ -1,0 +1,23 @@
+.progressBar__wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+.progressBar__item{
+    width: 30px;
+    height: 5px;
+    background-color: #fff;
+    border: 1px solid #5BA3D1;
+    border-top: none;
+    margin: 0 5px;
+}
+
+.progressBar__item_done{
+    background-color: #ff6633;
+    border-color: #ff6633;
+}
+
+.progressBar__item_current{
+    background-color: #5BA3D1;
+}

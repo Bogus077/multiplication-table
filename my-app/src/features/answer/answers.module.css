@@ -15,14 +15,22 @@
     width: 100px;
     height: 100px;
 
-    border: 2px solid #ff6633;
+    border: 2px solid #5BA3D1;
     transition: 0.3s;
 }
 
 .answer__item:hover{
     cursor: pointer;
-    background-color: #ff6633;
+    background-color: #5BA3D1;
     color: #fff;
+}
+
+@media (hover: none) {
+    .answer__item:hover{
+        cursor: pointer;
+        background-color: #fff;
+        color: #000;
+    }
 }
 
 @media screen and (max-width: 700px){
