@@ -10,7 +10,7 @@ import { steps } from '../../lib/constants';
 import { stateTypes, stepsType } from '../../lib/interfaces';
 
 const initialState: stateTypes = {
-  steps: steps,
+  steps: [],
   activeNumbers: {
     '2': true,
     '3': true,
@@ -31,7 +31,7 @@ export const TableSlice = createSlice({
   name: 'table',
   initialState,
   reducers: {
-    changeStep: (state, action) => {
+    setSteps: (state, action) => {
       state.steps = action.payload;
     },
     numberOn: (state: stateTypes, action) : void => {
@@ -90,6 +90,6 @@ export const getDialog = (state: { [key: string]: stateTypes }): string =>
 export const getSteps = (state: { [key: string]: stateTypes }): stepsType =>
   state.table.steps;
 
-export const { changeStep, numberOn, badAnswer, goodAnswer, newExpression } =
+export const { setSteps, numberOn, badAnswer, goodAnswer, newExpression } =
   TableSlice.actions;
 export default TableSlice.reducer;

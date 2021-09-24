@@ -1,0 +1,9 @@
+.message{
+    padding: 20px;
+    background-color: hsla(15, 100%, 60%, 0.3);
+    width: 100vw;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}

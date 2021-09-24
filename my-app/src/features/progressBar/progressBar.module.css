@@ -6,7 +6,7 @@
 
 .progressBar__item{
     width: 30px;
-    height: 5px;
+    height: 3px;
     background-color: #fff;
     border: 1px solid #5BA3D1;
     border-top: none;
