@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     width: 100vw;
+    height: 30px;
 }
 
 .progressBar__item{
@@ -11,11 +12,23 @@
     border: 1px solid #5BA3D1;
     border-top: none;
     margin: 0 5px;
+    transition: 0.3s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .progressBar__item_done{
     background-color: #ff6633;
     border-color: #ff6633;
+    height: 25px;
+}
+
+.progressBar__item_done:after{
+    content: "✓";
+    font-weight: bold;
+    color: #fff;
 }
 
 .progressBar__item_current{
