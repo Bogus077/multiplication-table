@@ -1,8 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current  } from '@reduxjs/toolkit';
 import {
   getRandomNumber,
   getActiveNumbersCount,
   generateNewExpression,
+  editSteps,
 } from '../../lib/functions';
 import { dialog } from '../../lib/lexicons';
 import { steps } from '../../lib/constants';
@@ -62,6 +63,10 @@ export const TableSlice = createSlice({
       const [newNumber1, newNumber2] = generateNewExpression(state);
       state.expressionItem1 = newNumber1;
       state.expressionItem2 = newNumber2;
+
+      const steps = current(state.steps);
+      const newSteps = editSteps(steps);
+      state.steps = newSteps;
     },
     newExpression: (state) => {
       const [newNumber1, newNumber2] = generateNewExpression(state);

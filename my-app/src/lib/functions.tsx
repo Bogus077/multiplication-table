@@ -1,3 +1,4 @@
+import { KeyObject } from 'tls';
 import { stateTypes } from './interfaces';
 
 export const getRandomNumber = (min: number, max: number): number => {
@@ -66,4 +67,19 @@ export const compareNumbers = (a: number, b: number): number => {
   } else {
     return -1;
   }
+};
+
+export const editSteps = (steps: Array<{[key:string]:string}>) : Array<{[key:string]:string}> => {
+  let newCurrent = false;
+  const newSteps = steps.map((item: {[key:string]:string}) => {
+    if(item.status == 'current'){
+      newCurrent = true;
+      return Object.assign({}, item, { status: 'done' });
+    }else if(newCurrent){
+      newCurrent = false;
+      return Object.assign({}, item, { status: 'current' });
+    }
+      return item;
+  });
+  return newSteps;
 };
