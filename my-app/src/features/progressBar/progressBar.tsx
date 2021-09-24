@@ -16,6 +16,7 @@ export default function ProgressBar(): JSX.Element {
           className={cx({
             progressBar__item: true,
             progressBar__item_done: item.status === 'done',
+            progressBar__item_fail: item.status === 'fail',
             progressBar__item_current: item.status === 'current',
           })}></div>
       ))}

@@ -56,6 +56,14 @@ export const TableSlice = createSlice({
     },
     badAnswer: (state) => {
       state.dialog = dialog.wrongAnswer;
+      state.lastItem = state.expressionItem2;
+      const [newNumber1, newNumber2] = generateNewExpression(state);
+      state.expressionItem1 = newNumber1;
+      state.expressionItem2 = newNumber2;
+
+      const steps = current(state.steps);
+      const newSteps = editSteps(steps, 'fail');
+      state.steps = newSteps;
     },
     goodAnswer: (state) => {
       state.dialog = dialog.goodAnswer;
@@ -65,7 +73,7 @@ export const TableSlice = createSlice({
       state.expressionItem2 = newNumber2;
 
       const steps = current(state.steps);
-      const newSteps = editSteps(steps);
+      const newSteps = editSteps(steps, 'done');
       state.steps = newSteps;
     },
     newExpression: (state) => {

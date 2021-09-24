@@ -69,12 +69,12 @@ export const compareNumbers = (a: number, b: number): number => {
   }
 };
 
-export const editSteps = (steps: Array<{[key:string]:string}>) : Array<{[key:string]:string}> => {
+export const editSteps = (steps: Array<{[key:string]:string}>, status: string) : Array<{[key:string]:string}> => {
   let newCurrent = false;
   const newSteps = steps.map((item: {[key:string]:string}) => {
     if(item.status == 'current'){
       newCurrent = true;
-      return Object.assign({}, item, { status: 'done' });
+      return Object.assign({}, item, { status: status });
     }else if(newCurrent){
       newCurrent = false;
       return Object.assign({}, item, { status: 'current' });

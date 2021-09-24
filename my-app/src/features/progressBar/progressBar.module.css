@@ -31,6 +31,18 @@
     color: #fff;
 }
 
+.progressBar__item_fail{
+    background-color: #5BA3D1;
+    border-color: #5BA3D1;
+    height: 25px;
+}
+
+.progressBar__item_fail:after{
+    content: "X";
+    font-weight: bold;
+    color: #fff;
+}
+
 .progressBar__item_current{
     background-color: #5BA3D1;
 }
