@@ -1,5 +1,4 @@
-import { KeyObject } from 'tls';
-import { stateTypes } from './interfaces';
+import { stateTypes, stepsType } from './interfaces';
 
 export const getRandomNumber = (min: number, max: number): number => {
   return Math.floor(min + Math.random() * (max + 1 - min));
@@ -69,7 +68,7 @@ export const compareNumbers = (a: number, b: number): number => {
   }
 };
 
-export const editSteps = (steps: Array<{[key:string]:string}>, status: string) : Array<{[key:string]:string}> => {
+export const editSteps = (steps: stepsType, status: string) : stepsType => {
   let newCurrent = false;
   const newSteps = steps.map((item: {[key:string]:string}) => {
     if(item.status == 'current'){
@@ -82,4 +81,14 @@ export const editSteps = (steps: Array<{[key:string]:string}>, status: string) :
       return item;
   });
   return newSteps;
+};
+
+export const countDoneSteps = (steps: stepsType):number => {
+  let stepsDone = 0;
+  steps.forEach(item => {
+      if(item.status === 'done'){
+          stepsDone++;
+      }
+  });
+  return stepsDone;
 };

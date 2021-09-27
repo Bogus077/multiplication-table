@@ -6,6 +6,7 @@ import Answers from '../answer/answer';
 import Dialog from '../dialog/dialog';
 import StartScreen from '../startScreen/startScreen';
 import Button from '../ui/button/button';
+import Summary from '../summary/summary';
 import { useSelector, useDispatch } from 'react-redux';
 import { getSteps, setSteps } from './tableSlice';
 import { steps } from '../../lib/constants';
@@ -18,8 +19,16 @@ export default function Table() : ReactElement {
   const onStartClick = () => {
     dispatch(setSteps(steps));
   };
+  const isAllDone = currentSteps[currentSteps.length - 1]?.status === 'done' || currentSteps[currentSteps.length - 1]?.status === 'fail';
 
-  if (currentSteps.length === 0){
+  if (isAllDone){
+    return(
+      <div className={styles.screen}>
+        <Summary/>
+        <Button text={'Начать заново'} onClickFunction={() => onStartClick()}/>
+      </div>
+    );
+  }else if (currentSteps.length === 0){
     return(
       <div className={styles.screen}>
         <StartScreen/>
