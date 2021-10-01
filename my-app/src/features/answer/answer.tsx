@@ -13,8 +13,8 @@ export default function Answers(): JSX.Element {
 
   const answers = createAnswers(answerRight);
 
-  const checkAnswer = (e:any) => {
-    +e.target.innerHTML === answerRight
+  const checkAnswer = (item: number) => {
+    +item === answerRight
       ? dispatch(goodAnswer())
       : dispatch(badAnswer());
   };
@@ -22,17 +22,17 @@ export default function Answers(): JSX.Element {
   return (
     <div className={styles.answers}>
       {answers.map((item, i) => (
-        <AnswerItem number={item} key={i} checkFunction={checkAnswer} />
+        <AnswerItem number={item} key={i} checkFunction={() => checkAnswer(item)} />
       ))}
     </div>
   );
 }
 
-function AnswerItem(props: { number: number; checkFunction:any}) {
+function AnswerItem(props: { number: number; checkFunction: VoidFunction}) {
   return (
     <div
       className={styles.answer__item}
-      onClick={(e) => props.checkFunction(e)}>
+      onClick={() => props.checkFunction()}>
       {props.number}
     </div>
   );

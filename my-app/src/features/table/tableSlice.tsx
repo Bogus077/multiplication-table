@@ -1,12 +1,12 @@
-import { createSlice, current  } from '@reduxjs/toolkit';
+import { createSlice, current, createAsyncThunk  } from '@reduxjs/toolkit';
 import {
   getRandomNumber,
   getActiveNumbersCount,
   generateNewExpression,
   editSteps,
 } from '../../lib/functions';
+import { getStepsFromApi } from '../../api/stepsApi';
 import { dialog } from '../../lib/lexicons';
-import { steps } from '../../lib/constants';
 import { stateTypes, stepsType } from '../../lib/interfaces';
 
 const initialState: stateTypes = {
@@ -25,7 +25,16 @@ const initialState: stateTypes = {
   expressionItem2: getRandomNumber(2, 9),
   lastItem: 0,
   dialog: dialog.pushForNewAnswer,
+  loading: false,
 };
+
+export const getAsyncSteps: any = createAsyncThunk(
+  'getAsyncSteps',
+  async() => {
+    const response = await getStepsFromApi();
+    return response;
+  }
+);
 
 export const TableSlice = createSlice({
   name: 'table',
@@ -84,6 +93,18 @@ export const TableSlice = createSlice({
       state.dialog = dialog.pushForNewAnswer;
     }
   },
+  extraReducers: {
+    [getAsyncSteps.pending] : (state) => {
+      state.loading = true;
+    },
+    [getAsyncSteps.fulfilled] : (state, action) => {
+      state.loading = false;
+      state.steps = action.payload;
+    },
+    [getAsyncSteps.rejected] : (state) => {
+      state.loading = false;
+    }
+  }
 });
 
 export const getActiveNumbers = (state: {
@@ -97,6 +118,8 @@ export const getDialog = (state: { [key: string]: stateTypes }): string =>
   state.table.dialog;
 export const getSteps = (state: { [key: string]: stateTypes }): stepsType =>
   state.table.steps;
+export const checkLoading = (state: { [key: string]: stateTypes }): boolean =>
+  state.table.loading;
 
 export const { setSteps, numberOn, badAnswer, goodAnswer, newExpression } =
   TableSlice.actions;

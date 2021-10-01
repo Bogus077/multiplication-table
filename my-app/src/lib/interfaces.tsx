@@ -9,4 +9,5 @@ export interface stateTypes {
   expressionItem2: number;
   lastItem: number;
   dialog: string;
+  loading: boolean;
 }
